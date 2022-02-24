@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理首页</title>
+</head>
+<body>
+
+<div>
+    <p>
+        <input type="button" onclick="javascript:history.back(-1);" value="返回上一页">
+    </p>
+</div>
+
+<div>
+    <form th:action="@{/root/employeeManage/toQueryEmployeePage}" method="post">
+        <input type="submit" value="查询用户">
+    </form>
+    <br>
+    <form th:action="@{/root/employeeManage/queryAllEmployee}" method="post">
+        <input type="submit" value="查看所有用户">
+    </form>
+    <p style="color: red" th:text="${msg}"></p>
+    <form th:action="@{/root/employeeManage/toAddEmployeePage}" method="post">
+        <input type="submit" value="新开用户">
+    </form>
+    <br>
+</div>
+
+</body>
+</html>

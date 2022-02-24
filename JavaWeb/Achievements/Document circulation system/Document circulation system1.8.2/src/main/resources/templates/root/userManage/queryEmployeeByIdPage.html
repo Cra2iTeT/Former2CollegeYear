@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询用户首页</title>
+</head>
+<body>
+    <div>
+        <p style="color: red" th:text="${msg}"></p>
+        <form th:action="@{/root/userManage/queryEmployeeById}">
+            <p>
+                <input type="text" name="id">
+            </p>
+            <p>
+                <input type="submit" value="确定">
+            </p>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询用户结果页</title>
+</head>
+<body>
+
+<div>
+    <table border="1" id="tab">
+        <tr>
+            <th>职工id</th>
+            <th>职工密码</th>
+            <th>职工姓名</th>
+            <th>职工部门</th>
+            <th>职工职位</th>
+            <th>职工状态</th>
+            <th>功能1</th>
+            <th>功能2</th>
+            <th>功能3</th>
+        </tr>
+        <tr>
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.departName}"></td>
+            <td th:text="${user.position}"></td>
+            <td th:text="${user.state}"></td>
+            <td>
+                <form th:action="@{/root/userManage/pauseEmployeeById}">
+                    <input type="hidden" th:value="${user.id}" name="id">
+                    <input type="submit" value="暂停用户">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/root/userManage/toUpdateEmployeeByIdPage}">
+                    <input type="hidden" th:value="${user.id}" name="id">
+                    <input type="submit" value="编辑用户">
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/root/userManage/deleteEmployeeById}">
+                    <input type="hidden" th:value="${user.id}" name="id">
+                    <input type="submit" value="删除用户">
+                </form>
+            </td>
+        </tr>
+    </table>
+    <p style="color: red" th:text="${msg}"></p>
+</div>
+
+</body>
+</html>

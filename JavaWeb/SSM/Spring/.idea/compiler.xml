@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="practice-di" />
+        <module name="practice-Mybatis" />
+        <module name="practice-proxy" />
+        <module name="untitled" />
+        <module name="practice-autowired" />
+        <module name="appConfig" />
+        <module name="practice-Hello" />
+        <module name="practice-anno" />
+        <module name="practice-jdbc" />
+        <module name="practice-aop" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="practice-proxy" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

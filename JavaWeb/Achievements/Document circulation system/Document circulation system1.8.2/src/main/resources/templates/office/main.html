@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>办公室首页</title>
+</head>
+<body>
+<div>
+    <p>[[${session.userName}]]</p>
+</div>
+
+<div>
+    <p style="color: red" th:text="${msg}"></p>
+    <form th:action="@{/office/queryUnsignedDocument}" method="post">
+        <input type="submit" value="查看未签审公文">
+    </form>
+    <br>
+    <form th:action="@{/office/querySignedDocument}" method="post">
+        <input type="submit" value="查看已签审公文">
+    </form>
+    <br>
+</div>
+
+</body>
+</html>

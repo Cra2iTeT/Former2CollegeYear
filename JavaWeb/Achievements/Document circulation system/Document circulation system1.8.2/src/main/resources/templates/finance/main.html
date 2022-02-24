@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>财务部门首页</title>
+</head>
+<body>
+<div>
+    <p>[[${session.userName}]]</p>
+</div>
+
+<div>
+    <p style="color: red" th:text="${msg}"></p>
+    <form th:action="@{/finance/toAddDocumentPage}" method="post">
+        <input type="submit" value="公文拟制">
+    </form>
+    <br>
+    <form th:action="@{/finance/queryUnsignedDocument}" method="post">
+        <input type="submit" value="查询未签审公文">
+    </form>
+    <br>
+    <form th:action="@{/finance/querySignedDocument}" method="post">
+        <input type="submit" value="浏览已签审公文">
+    </form>
+</div>
+
+</body>
+</html>

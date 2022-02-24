@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="HTML">
+    <output-path>$PROJECT_DIR$/out/artifacts/HTML</output-path>
+    <root id="root">
+      <element id="archive" name="HTML.jar">
+        <element id="module-output" name="HTML" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.mapper.Mapper">
+    <insert id="add" parameterType="person">
+        insert into `person` (`name`, `houseType`, `homeType`, `area`, `roomnum`, `id`, `gender`, `nation`, `edu`)
+        values (#{name}, #{housetype}, #{hometype}, #{area}, #{roomnum}, #{id}, #{gender}, #{nation}, #{edu})
+    </insert>
+
+    <delete id="deleteByName" parameterType="java.lang.String">
+        delete
+        from `person`
+        where name = #{name};
+    </delete>
+
+    <update id="update" parameterType="map">
+        update `person`
+        set `id`     = #{id},
+            gender   = #{gender},
+            `nation` = #{nation},
+            `edu`    = #{edu}
+        where name = #{name}
+    </update>
+
+    <select id="query" parameterType="map" resultType="person">
+        select * from `person`
+        <where>
+            <if test="name != null">
+                name = #{name}
+            </if>
+            <if test="gender != null">
+                and gender = #{gender}
+            </if>
+            <if test="nation != null">
+                and nation like concat(#{nation},'%')
+            </if>
+            <if test="edu != null">
+                and edu = #{edu}
+            </if>
+        </where>
+    </select>
+
+    <select id="show" parameterType="java.lang.String" resultType="person">
+        select *
+        from `person`
+        where name = #{name}
+    </select>
+
+</mapper>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户信息页面</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/root/userManage/updateEmployeeByIdPage}">
+        <p>id:
+            <span th:text="${user.id}"></span>
+            <input type="hidden" th:value="${user.id}" name="id">
+        </p>
+        <p>姓名:
+            <input type="text" name="name" th:value="${user.name}">
+            <span th:text="${user.name}"></span>
+        </p>
+        <p>密码:
+            <input type="text" name="password" th:value="${user.password}">
+            <span th:text="${user.password}"></span>
+        </p>
+        <p>部门:
+            <select name="departId" th:value="${user.departId}">
+                <option value="1">办公室</option>
+                <option value="2">生产部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">财务部门</option>
+            </select>
+            <span th:text="${user.departName}"></span>
+        </p>
+        <p>职员权限:
+            <select name="jurisdiction" th:value="${user.jurisdiction}">
+                <option value="0">最大权限</option>
+                <option value="1">主管生产</option>
+                <option value="2">主管销售</option>
+                <option value="3">主管财务</option>
+            </select>
+            <span th:text="${user.jurisdiction}"></span>
+        </p>
+        <p>职位:
+            <input type="text" name="position" th:value="${user.position}">
+            <span th:text="${user.position}"></span>
+        </p>
+        <p>在职状态:
+            <select name="state" th:value="${user.state}">
+                <option value="1">在职</option>
+                <option value="0">停职</option>
+            </select>
+            <span th:text="${user.state}"></span>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

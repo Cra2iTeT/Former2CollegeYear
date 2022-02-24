@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.mapper.TMapper">
+    <update id="updateT" parameterType="map">
+        update `t`
+        <set>
+            <if test="uname!=null">
+                tname=#{tname};
+            </if>
+            <if test="ugender!=null">
+                tgender=#{tgender};
+            </if>
+            <if test="uage!=null">
+                tage=#{tage};
+            </if>
+            <if test="uphone!=null">
+                tphone=#{tphone};
+            </if>
+            <if test="unum!=null">
+                tnum=#{tnum};
+            </if>
+            <if test="ua!=null">
+                ta=#{ta};
+            </if>
+            <if test="ub!=null">
+                tb=#{tb};
+            </if>
+            <if test="uc!=null">
+                tc=#{tc};
+            </if>
+        </set>
+        where tid = #{tid}
+    </update>
+
+    <select id="queryT" parameterType="java.lang.String" resultType="com.Cra2iTeT.bean.T">
+        select * from t where tid = #{tid};
+    </select>
+
+</mapper>

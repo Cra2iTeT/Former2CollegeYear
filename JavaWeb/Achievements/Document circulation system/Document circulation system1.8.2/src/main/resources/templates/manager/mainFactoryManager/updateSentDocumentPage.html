@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂长签审公文页面</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/mainFM/updateUnsignedDocument}">
+        <p>公文id:
+            <input type="text" th:value="${document.id}" disabled>
+            <input type="hidden" th:value="${document.id}" name="id">
+        </p>
+        <p>公文标题:
+            <textarea th:text="${document.title}" disabled></textarea>
+        </p>
+        <p>公文正文:
+            <textarea th:text="${document.text}" disabled></textarea>
+        </p>
+        <p>公文拟制部门:
+            <input type="text" th:value="${document.departName}"  disabled>
+        </p>
+        <p>公文拟制作者:
+            <input type="text" th:value="${document.authorName}"  disabled>
+        </p>
+        <p>公文签审意见:
+            <textarea name="advice"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

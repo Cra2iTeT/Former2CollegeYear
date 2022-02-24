@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询用户首页</title>
+</head>
+<body>
+    <div>
+        <p style="color: red" th:text="${msg}"></p>
+        <form th:action="@{/root/employeeManage/queryEmployee}">
+            <p>员工id:
+                <input type="text" name="id">
+            </p>
+            <p>员工姓名:
+                <input type="text" name="name" maxlength="20">
+            </p>
+            <p>部门:
+                <select name="departId">
+                    <option value="0">默认</option>
+                    <option value="1">主管</option>
+                    <option value="2">生产部门</option>
+                    <option value="3">销售部门</option>
+                    <option value="4">财务部门</option>
+                    <option value="5">办公室</option>
+                </select>
+            </p>
+            <p>在职情况:
+                <select name="stateNum">
+                    <option value="3">默认</option>
+                    <option value="1">在职</option>
+                    <option value="0">停职</option>
+                </select>
+            </p>
+            <p>
+                <input type="submit" value="确定">
+                <input type="reset" value="重置">
+            </p>
+
+        </form>
+    </div>
+</body>
+</html>

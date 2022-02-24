@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户页面</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/root/userManage/addEmployee}">
+        <p>id:
+            <input type="text" name="id" required>
+        </p>
+        <p>姓名:
+            <input type="text" name="name" required>
+        </p>
+        <p>密码:
+            <input type="text" name="password" required>
+        </p>
+        <p>部门:
+            <select name="departId" required>
+                <option value="1">主管</option>
+                <option value="2">生产部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">财务部门</option>
+                <option value="5">办公室</option>
+            </select>
+        </p>
+        <p>职员权限:
+            <select name="jurisdiction" required>
+                <option value="0">最大权限</option>
+                <option value="1">主管生产</option>
+                <option value="2">主管销售</option>
+                <option value="3">主管财务</option>
+            </select>
+        </p>
+        <p>职位:
+            <input type="text" name="position" required>
+        </p>
+        <p>在职状态:
+            <select name="state" required>
+                <option value="1">在职</option>
+                <option value="0">停职</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

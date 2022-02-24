@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.dao.RootDao">
+
+    <select id="queryEmployeeById" parameterType="int" resultType="employee">
+        SELECT emp.name,
+               emp.id,
+               emp.password,
+               emp.departid,
+               depart.name AS departName,
+               emp.state,
+               emp.jurisdiction,
+               emp.position
+        FROM `employee` AS emp
+                 INNER JOIN department AS depart
+        WHERE emp.departid = depart.id
+          AND emp.id = #{id}
+    </select>
+
+    <select id="queryAllEmployee" resultType="employee">
+        SELECT emp.name,
+               emp.id,
+               emp.password,
+               emp.departid,
+               depart.name AS departName,
+               emp.state,
+               emp.jurisdiction,
+               emp.position
+        FROM `employee` AS emp
+                 INNER JOIN department AS depart
+        WHERE emp.departid = depart.id
+          AND emp.id != 1
+    </select>
+
+    <insert id="addEmployee" parameterType="map">
+        insert into employee (id, name, password, departid, jurisdiction, state, position)
+        values (#{id}, #{name}, #{password}, #{departid}, #{jurisdiction}, #{state}, #{position});
+    </insert>
+
+    <update id="pauseEmployeeById" parameterType="int">
+        update employee
+        set state = 0
+        where id = #{id};
+    </update>
+
+    <update id="updateEmployeeById" parameterType="map">
+        update employee
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+            <if test="departid!=null">
+                departid = #{departid},
+            </if>
+            <if test="jurisdiction!=null">
+                jurisdiction = #{jurisdiction},
+            </if>
+            <if test="position!=null">
+                position = #{position},
+            </if>
+            <if test="state!=null">
+                state = #{state},
+            </if>
+            correct = 1
+        </set>
+        where id = #{id};
+    </update>
+
+    <delete id="deleteEmployeeById" parameterType="int">
+        delete
+        from employee
+        where id = #{id};
+    </delete>
+
+</mapper>

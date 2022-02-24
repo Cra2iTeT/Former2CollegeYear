@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    version="4.0"
+    metadata-complete="true"
+
+    <!--    <servlet>-->
+    <!--        <servlet-name>h1</servlet-name>-->
+    <!--        <servlet-class>helloServlet.helloServlet</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>h1</servlet-name>-->
+    <!--        <url-pattern>/h1</url-pattern>-->
+    <!--    </servlet-mapping>-->
+
+    <!--    <servlet>-->
+    <!--        <servlet-name>error</servlet-name>-->
+    <!--        <servlet-class>servlet.errorS</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>error</servlet-name>-->
+    <!--        <url-pattern>/*</url-pattern>-->
+    <!--    </servlet-mapping>-->
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>Cra2iTeT.com</param-value>
+    </context-param>
+
+<!--    <servlet>-->
+<!--        <servlet-name>setC</servlet-name>-->
+<!--        <servlet-class>servlet.context</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>setC</servlet-name>-->
+<!--        <url-pattern>/setC</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>getC</servlet-name>-->
+<!--        <servlet-class>servlet.getContext</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>getC</servlet-name>-->
+<!--        <url-pattern>/getC</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>gp</servlet-name>-->
+<!--        <servlet-class>servlet.context03</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>gp</servlet-name>-->
+<!--        <url-pattern>/gp</url-pattern>-->
+<!--    </servlet-mapping>-->
+<!--    <servlet>-->
+<!--        <servlet-name>sp</servlet-name>-->
+<!--        <servlet-class>servlet.context02</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>sp</servlet-name>-->
+<!--        <url-pattern>/sp</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>fileD</servlet-name>-->
+<!--        <servlet-class>response.FileServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>fileD</servlet-name>-->
+<!--        <url-pattern>/fileD</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>imageS</servlet-name>-->
+<!--        <servlet-class>response.imageServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>imageS</servlet-name>-->
+<!--        <url-pattern>/imageS</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>redirectS</servlet-name>-->
+<!--        <servlet-class>response.redirectServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>redirectS</servlet-name>-->
+<!--        <url-pattern>/redirectS</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>requestS</servlet-name>-->
+<!--        <servlet-class>response.requestServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>requestS</servlet-name>-->
+<!--        <url-pattern>/requestS</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+<!--    <servlet>-->
+<!--        <servlet-name>LoginServlet</servlet-name>-->
+<!--        <servlet-class>request.LoginServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>LoginServlet</servlet-name>-->
+<!--        <url-pattern>/Login</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <servlet-class>lesson.DBUtil</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/p</url-pattern>
+    </servlet-mapping>
+
+</web-app>

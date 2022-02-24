@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生产主管首页</title>
+</head>
+<body>
+<div>
+    <p>[[${session.userName}]]</p>
+</div>
+
+<div>
+    <p style="color: red" th:text="${msg}"></p>
+    <form th:action="@{/productionFM/queryAllSentDocument}" method="post">
+        <input type="submit" value="浏览所有已发送公文">
+    </form>
+    <br>
+    <form th:action="@{/productionFM/toQueryDocumentPage}" method="post">
+        <input type="submit" value="公文查询">
+    </form>
+</div>
+
+</body>
+</html>

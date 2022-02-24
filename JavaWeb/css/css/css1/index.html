@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    内部样式-->
+    <style>
+        h2{
+            color: blue;
+        }
+    </style>
+
+<!--    导入式，css2.1下的方式，基本弃用，代码繁多的时候会先出结构再渲染-->
+    <style>
+        @import url(style.css);
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!--行内>内部>外部-->
+<!--覆盖原则，谁离代码近用谁-->
+
+<!--行内样式-->
+<h1 style="color: red">我是标题</h1>
+<h2>我是小标题</h2>
+<h3>我是小小标题</h3>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>超链接查看职员详细数据结果页</title>
+</head>
+<body>
+
+<div>
+    <p>
+        <input type="button" onclick="javascript:history.back(-1);" value="返回上一页">
+    </p>
+</div>
+
+<div>
+    <table border="1" id="tab">
+        <tr>
+            <th>职工id</th>
+            <th>职工密码</th>
+            <th>职工姓名</th>
+            <th>职工部门码</th>
+            <th>职工部门</th>
+            <th>职工权限码</th>
+            <th>职工权限</th>
+            <th>职工职位</th>
+            <th>职工状态码</th>
+            <th>职工状态</th>
+        </tr>
+        <tr>
+            <td th:text="${employee.id}"></td>
+            <td th:text="${employee.password}"></td>
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.departId}"></td>
+            <td th:text="${employee.departName}"></td>
+            <td th:text="${employee.jurisdictionNum}"></td>
+            <td th:text="${employee.jurisdiction}"></td>
+            <td th:text="${employee.position}"></td>
+            <td th:text="${employee.stateNum}"></td>
+            <td th:text="${employee.state}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

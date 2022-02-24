@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管理员首页</title>
+</head>
+<body>
+<div>
+    <p>[[${session.userName}]]</p>
+</div>
+
+<div>
+    <form th:action="@{/root/toUserManagePage}" method="post">
+        <input type="submit" value="用户管理">
+    </form>
+    <br>
+    <form th:action="@{/root/toTextManage}" method="post">
+        <input type="submit" value="公文流转流程管理">
+    </form>
+    <br>
+</div>
+
+</body>
+</html>

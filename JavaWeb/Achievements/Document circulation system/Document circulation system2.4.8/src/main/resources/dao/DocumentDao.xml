@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.dao.DocumentDao">
+
+    <insert id="addDocument" parameterType="map">
+        insert into document (`title`, `text`, `departid`, `authorid`, `statenum`, `approveid`, `advice`)
+        values (#{title}, #{text}, #{departid}, #{authorid}, #{statenum}, 8, "无");
+    </insert>
+
+    <select id="queryDocument" parameterType="map" resultType="document">
+        select doc.id,
+        doc.title,
+        doc.text,
+        doc.departid,
+        doc.authorid,
+        depart.name as departName,
+        emp.name as authorName,
+        doc.statenum,
+        doc.advice,
+        empl.name as approveName,
+        empl.id as approveId
+        from `document` as doc
+        inner join `department` as depart
+        inner join `employee` as emp
+        inner join `employee` as empl
+        <where>
+            <if test="departid != null">
+                doc.departid = #{departid} and
+            </if>
+            <if test="statenum != null">
+                doc.statenum = #{statenum} and
+            </if>
+            <if test="id != null">
+                doc.id = #{id} and
+            </if>
+            <if test="authorid != null">
+                authorid = #{authorid} and
+            </if>
+            <if test="authorname != null">
+                emp.name like concat('%',#{authorname},'%') and
+            </if>
+            <if test="title != null">
+                title like concat('%',#{title},'%') and
+            </if>
+            depart.id = doc.departid
+            and emp.id = doc.authorid
+            and empl.id = doc.approveid
+        </where>
+    </select>
+
+    <update id="updateDocument" parameterType="map">
+        update document
+        <set>
+            correct = 1,
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="text != null">
+                text = #{text},
+            </if>
+            <if test="advice != null">
+                advice = #{advice},
+            </if>
+            <if test="statenum != null">
+                statenum = #{statenum},
+            </if>
+            <if test="approveid != null">
+                approveid = #{approveid},
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <delete id="deleteDocumentById" parameterType="int">
+        delete
+        from document
+        where id = #{id};
+    </delete>
+
+</mapper>
