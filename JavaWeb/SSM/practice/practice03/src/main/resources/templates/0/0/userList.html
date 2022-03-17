@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+
+<div>
+    <table border="1" id="tab">
+        <tr>
+            <th>职工id</th>
+            <th>职工密码</th>
+            <th>职工姓名</th>
+            <th>职工部门</th>
+            <th>职工状态</th>
+        </tr>
+        <tr th:each="worker:${list}">
+            <td th:text="${worker.id}"></td>
+            <td th:text="${worker.password}"></td>
+            <td th:text="${worker.name}"></td>
+            <td th:text="${worker.depart}"></td>
+            <td th:text="${worker.state}"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

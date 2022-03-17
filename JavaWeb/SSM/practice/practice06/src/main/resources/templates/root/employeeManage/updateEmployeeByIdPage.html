@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户信息页面</title>
+</head>
+<body>
+
+<div>
+    <p>
+        <input type="button" onclick="javascript:history.back(-1);" value="返回上一页">
+    </p>
+</div>
+
+<div>
+    <form th:action="@{/root/employeeManage/updateEmployeeByIdPage}"  method="post">
+        <p>职工id:
+            <input type="text" th:value="${employee.id}" disabled>
+            <input type="hidden" th:value="${employee.id}" name="id">
+        </p>
+        <p>原姓名:
+            <input type="text" th:value="${employee.name}" disabled>
+        </p>
+        <p>新姓名:
+            <input type="text" name="name">
+        </p>
+        <p>原密码:
+            <input type="text" th:value="${employee.password}" disabled>
+        </p>
+        <p>新密码:
+            <input type="text" name="password">
+        </p>
+        <p>原部门:
+            <input type="text" th:value="${employee.departName}" disabled>
+        </p>
+        <p>新部门:
+            <select name="departId">
+                <option value="0">原部门</option>
+                <option value="1">办公室</option>
+                <option value="2">生产部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">财务部门</option>
+            </select>
+        </p>
+        <p>原职员权限:
+            <input type="text" th:value="${employee.jurisdiction}" disabled>
+        </p>
+        <p>新职员权限:
+            <select name="jurisdictionNum">
+                <option value="0">原权限</option>
+                <option value="1">主管生产</option>
+                <option value="2">主管销售</option>
+                <option value="3">主管财务</option>
+            </select>
+        </p>
+        <p>原职位:
+            <input type="text" th:value="${employee.position}" disabled>
+        </p>
+        <p>新职位:
+            <input type="text" name="position">
+        </p>
+        <p>原职工状态:
+            <input type="text" th:value="${employee.state}" disabled>
+        </p>
+        <p>新职工状态:
+            <select name="stateNum">
+                <option value="2">原状态</option>
+                <option value="1">在职</option>
+                <option value="0">停职</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+            <input type="reset" value="重置">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

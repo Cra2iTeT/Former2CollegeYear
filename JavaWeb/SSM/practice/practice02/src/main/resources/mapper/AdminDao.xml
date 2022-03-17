@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.dao.AdminDao">
+
+    <select id="workerList" resultType="worker">
+        SELECT w.name, w.id, w.password, d.name AS depart, w.state
+        FROM `worker` AS w
+                 INNER JOIN depart AS d
+        WHERE w.did = d.id
+          AND w.id != 1
+    </select>
+
+    <insert id="addWorker" parameterType="worker">
+        insert into worker (id, name, password, did, sid, state)
+        values (#{id}, #{name}, #{password}, #{did}, #{sid}, #{state});
+    </insert>
+
+    <update id="pauseWorkerById" parameterType="int">
+        update worker
+        set state = 0
+        where id = #{id};
+    </update>
+
+    <update id="updateWorker" parameterType="map">
+        update worker
+        <set>
+            <if test="name!=null">
+                name = #{name},
+            </if>
+            <if test="password!=null">
+                password = #{password},
+            </if>
+            <if test="did!=null">
+                did = #{did},
+            </if>
+            <if test="sid!=null">
+                sid = #{sid},
+            </if>
+            <if test="state!=null">
+                state = #{state}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+    <delete id="delWorkerById" parameterType="int">
+        delete
+        from worker
+        where id = #{id};
+    </delete>
+
+    <select id="selectWorkerById" parameterType="int" resultType="worker">
+        select *
+        from worker
+        where id = #{id}
+    </select>
+
+</mapper>

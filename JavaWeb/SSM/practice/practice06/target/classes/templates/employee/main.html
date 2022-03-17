@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>职工首页</title>
+</head>
+<body>
+<div>
+    <p>[[${session.userName}]]</p>
+</div>
+
+<div>
+    <p style="color: red" th:text="${msg}"></p>
+    <form th:action="@{/document/toAddDocumentPage}" method="post">
+        <input type="submit" value="公文拟制">
+    </form>
+    <br>
+    <form th:action="@{/document/queryUnsignedDocument}" method="post">
+        <input type="submit" value="查询未签审公文">
+    </form>
+    <br>
+    <form th:action="@{/document/querySignedDocument}" method="post">
+        <input type="submit" value="浏览已签审公文">
+    </form>
+    <br>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="注销登录">
+    </form>
+</div>
+
+</body>
+</html>

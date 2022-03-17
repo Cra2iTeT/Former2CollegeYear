@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂长查询公文</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/fm/1/query}" method="post">
+        <p>公文id：
+            <input type="text" name="id">
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

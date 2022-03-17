@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂长首页</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/fm/2/toScan}" method="post">
+        <input type="submit" value="浏览已发公文">
+    </form>
+    <br>
+    <form th:action="@{/fm/2/toQuery}" method="post">
+        <input type="submit" value="查询公文">
+    </form>
+</div>
+
+</body>
+</html>

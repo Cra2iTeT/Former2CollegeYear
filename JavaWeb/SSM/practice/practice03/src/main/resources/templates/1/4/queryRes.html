@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂长查询结果</title>
+</head>
+<body>
+
+<div>
+    <p>公文id：
+        <span th:text="${doc.getId()}"></span>
+    </p>
+    <p>公文标题：
+        <span th:text="${doc.getTitle()}"></span>
+    </p>
+    <p>公文正文：
+        <span th:text="${doc.getText()}"></span>
+    </p>
+    <p>公文状态：
+        <span th:text="${doc.getState()}"></span>
+    </p>
+    <p>公文建议：
+        <span th:text="${doc.getAdvice()}"></span>
+    </p>
+    <p>公文提交部门:
+        <span th:text="${doc.getUpDepart()}"></span>
+    </p>
+</div>
+
+</body>
+</html>

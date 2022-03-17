@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息修改</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/admin/roleManage/roleManage(id=${id})}" method="post">
+        <span th:text="${id}"></span>
+        <p>姓名：
+            <input type="text" name="name">
+        </p>
+        <p>旧密码：
+            <input type="text" name="oldPassword">
+        </p>
+        <span th:text="${msg}" style="color: red"></span>
+        <p>新密码：
+            <input type="text" name="newPassword1">
+        </p>
+        <!--        多输一遍确认-->
+        <p>确认密码：
+            <input type="text" name="newPassword2">
+        </p>
+        <span th:text="${msg}" style="color: red"></span>
+        <p>部门：
+            <select name="did">
+                <option value="1">办公室</option>
+                <option value="2">财务部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">生产部门</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

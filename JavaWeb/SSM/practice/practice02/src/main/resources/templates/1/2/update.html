@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>厂长修改公文页</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/fm/2/updateDoc(id=${id})}" method="post">
+        <span th:text="${id}"></span>
+        <p>标题：
+            <input type="text" name="title">
+        </p>
+        <p>正文：
+            <input type="text" name="text">
+        </p>
+        <p>状态：
+            <select name="state">
+                <option value="0">不通过</option>
+                <option value="1">未签收</option>
+                <option value="2">未签订意见</option>
+                <option value="3">已发布</option>
+            </select>
+        </p>
+        <p>意见：
+            <input type="text" name="advice">
+        </p>
+        <p>拟制部门：
+            <select name="up">
+                <option value="2">财务部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">生产部门</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>

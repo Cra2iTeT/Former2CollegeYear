@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Cra2iTeT.dao.AdminUserDao">
+    <select id="getAdminUserById" parameterType="Long" resultType="AdminUser">
+        select *
+        from tb_admin_user
+        where id = #{id}
+    </select>
+
+    <select id="login" parameterType="String" resultType="AdminUser">
+        select *
+        from tb_admin_user
+        where username = #{username}
+    </select>
+
+    <insert id="addUser" parameterType="AdminUser">
+        insert into tb_admin_user (id, username, password)
+        values (#{id}, #{userName}, #{password});
+    </insert>
+
+    <update id="updateUser" parameterType="map">
+        update tb_admin_user
+        <set>
+            <if test="userName != null">
+                username = #{userName},
+            </if>
+            <if test="password != null">
+                password = #{password}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

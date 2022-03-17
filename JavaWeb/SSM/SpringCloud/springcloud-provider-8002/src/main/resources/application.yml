@@ -1,0 +1,34 @@
+server:
+  port: 8002
+
+mybatis:
+  type-aliases-package: com.Cra2iTeT.pojo
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:dao/*.xml
+
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/db02?useUnicode=true&characterEncoding=utf8&autoReconnect=true&useSSL=false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+
+  instance:
+    instance-id: springcloud-provider-8002
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+info:
+  app.name: terrisy
+  company.name: Cra2iTeT.com

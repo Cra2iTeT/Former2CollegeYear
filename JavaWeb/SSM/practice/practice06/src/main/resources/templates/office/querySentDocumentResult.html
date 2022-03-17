@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览已发送公文结果页</title>
+</head>
+<body>
+
+<div>
+    <p>
+        <input type="button" onclick="javascript:history.back(-1);" value="返回上一页">
+    </p>
+</div>
+
+<div>
+    <table border="1" id="tab">
+        <tr>
+            <th>公文id</th>
+            <th>公文标题</th>
+            <th>公文正文</th>
+            <th>公文拟制部门</th>
+            <th>公文拟制作者</th>
+        </tr>
+        <tr th:each="document:${documentList}">
+            <td>
+                <a th:href="@{'/fm/queryDocumentById?id='+${document.id}}" th:text="${document.id}"
+                   style="text-decoration: none"></a>
+            </td>
+            <td>
+                <a th:href="@{'/fm/queryDocumentById?id='+${document.id}}" th:text="${document.title}"
+                   style="text-decoration: none"></a>
+            </td>
+            <td>
+                <a th:href="@{'/fm/queryDocumentById?id='+${document.id}}" th:text="${document.text}"
+                   style="text-decoration: none"></a>
+            </td>
+            <td>
+                <a th:href="@{'/fm/queryDocumentById?id='+${document.id}}" th:text="${document.departName}"
+                   style="text-decoration: none"></a>
+            </td>
+            <td>
+                <a th:href="@{'/fm/queryDocumentById?id='+${document.id}}" th:text="${document.authorName}"
+                   style="text-decoration: none"></a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

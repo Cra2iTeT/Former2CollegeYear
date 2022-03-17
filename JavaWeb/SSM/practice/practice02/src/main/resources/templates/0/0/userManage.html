@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+
+<div>
+    <form th:action="@{/admin/userManage/userList}" method="post">
+        <input type="submit" value="查看用户">
+    </form>
+    <br>
+    <form th:action="@{/admin/userManage/toAddUser}" method="post">
+        <input type="submit" value="新开用户">
+    </form>
+    <br>
+    <form th:action="@{/admin/userManage/toPauseUser}" method="post">
+        <input type="submit" value="暂停用户">
+    </form>
+    <br>
+    <form th:action="@{/admin/userManage/toUpdateUser}" method="post">
+        <input type="submit" value="用户信息修改">
+    </form>
+    <br>
+    <form th:action="@{/admin/userManage/toDelUser}" method="post">
+        <input type="submit" value="删除用户">
+    </form>
+</div>
+
+</body>
+</html>

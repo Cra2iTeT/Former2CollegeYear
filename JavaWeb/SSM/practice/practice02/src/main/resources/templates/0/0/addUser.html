@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新开用户</title>
+
+</head>
+<body>
+<div>
+    <form th:action="@{/admin/userManage/addUser}" method="post">
+        <p>姓名：
+            <input type="text" name="name">
+        </p>
+        <p>密码：
+            <input type="text" name="password">
+        </p>
+        <p>部门：
+            <select name="did">
+                <option value="1">办公室</option>
+                <option value="2">财务部门</option>
+                <option value="3">销售部门</option>
+                <option value="4">生产部门</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" value="提交">
+        </p>
+    </form>
+</div>
+
+</body>
+</html>
