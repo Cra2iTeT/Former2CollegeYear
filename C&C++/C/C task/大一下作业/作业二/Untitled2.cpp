@@ -1,0 +1,18 @@
+#include<iostream>
+#include<string>
+#include<iomanip>
+using namespace std;
+#define PI "314159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196"
+int main()
+{
+	int i,j;
+	int n;
+	cin>>n;
+	string A(PI);
+	for(i=0,j=0;i<n;i++){
+		string a=A.substr(j,i*2+1);
+		cout<<setw((n*2-1)/2+i+1)<<a<<endl;
+		j+=i*2+1;
+	}
+	return 0;
+}
