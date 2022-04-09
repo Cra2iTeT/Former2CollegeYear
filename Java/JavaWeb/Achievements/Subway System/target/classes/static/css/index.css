@@ -1,0 +1,16 @@
+a{
+    text-decoration: none;
+}
+
+#content{
+    width: 85%;
+    height: 100%;
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 85%;
+    height: 100%;
+    background-image: url("/img/beijing.jpeg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

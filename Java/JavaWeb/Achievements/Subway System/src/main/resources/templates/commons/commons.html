@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公共模板</title>
+</head>
+
+<link type="text/css" rel="stylesheet" th:href="@{css/commons.css}"/>
+<script type="text/javascript" th:src="@{/js/jquery-3.6.0.js}"></script>
+<script type="text/javascript" defer="true" th:src="@{/js/commons.js}"></script>
+
+<body>
+
+<header th:fragment="commonHeader" id="header">
+    <div id="topSelect">
+        请选择您所在城市：
+        <select id="selectCity" onchange="selectCity()">
+            <option value="beijing,北京" selected="selected">北京市</option>
+            <option value="tianjin,天津">天津市</option>
+            <option value="shijiazhuang,石家庄">石家庄市</option>
+            <option value="fuzhou,福州">福州市</option>
+        </select>
+    </div>
+    <div id="topWelcome" class="topWelcome">
+        <h2 th:text="${cityNameZhWelcome}" id="topWelcomeH2" class="topWelcomeH2">xxx市地铁系统欢迎您</h2>
+    </div>
+</header>
+
+<article id="article">
+    <!-- 定义公共的左侧菜单，commonMenu 表示片段名称，index 为传递进来的参数-->
+    <div id="articleLeft" class="articleLeft" th:fragment="commonMenu(index)">
+        <!-- 根据传递的参数 index 来设置当前活动的菜单样式；三元运算符，第三个参数缺省，当 ? 判断为 false 时返回 null-->
+        <ul>
+            <!-- 左侧大导航 -->
+            <li>
+                <a href="#target_1" th:class="${index}==0?'activeMenu'">线路查询</a>
+                <ul id="target_1">
+                    <li>
+                        <a th:href="@{/showAllLines}">查询所有线路</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/toInputLineId}">输入线路号查询线路</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/toInputStationName}">输入站名查询线路</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/toInputShortestWay}">查找最短路程</a>
+                    </li>
+                    <li>
+                        <a href="#">收起</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#target_2" th:class="${index}==1?'activeMenu'">线路管理</a>
+                <ul id="target_2">
+                    <li>
+                        <a th:href="@{/toInputTable}">添加新城市</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/toInputData}">导入新数据</a>
+                    </li>
+                    <li>
+                        <a href="#">收起</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- 同理如果还有其它更多的菜单时，可以依次往下传递参数-->
+    <div id="content" class="content">112
+    </div>
+</article>
+
+</body>
+</html>

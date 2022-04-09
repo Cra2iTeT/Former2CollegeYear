@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tea.lesson03.mapper.StationMapper">
+    <resultMap id="stationMap" type="station">
+        <id column="station_id" property="stationId" jdbcType="VARCHAR"></id>
+        <result column="station_name" property="stationName" jdbcType="VARCHAR"></result>
+        <result column="ring_flag" property="ringFlag" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="select" parameterType="map" resultMap="stationMap">
+        select * from ${tableName}
+        <where>
+            <if test="stationId != null">
+                station_id like concat(${stationId},'%')
+            </if>
+            <if test="stationName != null">
+                and station_name = #{stationName}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertTable" parameterType="map">
+        CREATE TABLE ${tableName}
+        (
+            `station_id`   varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+            `station_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin  NOT NULL,
+            `ring_flag`    varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin  NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+    </insert>
+
+    <select id="isTableExist" parameterType="map" resultType="int">
+        select count(*)
+        from information_schema.TABLES
+        where table_name = #{tableName}
+    </select>
+
+    <insert id="insertData" parameterType="map">
+        insert into ${tableName} (`station_id`, `station_name`, `ring_flag`)
+        values
+        <foreach collection="stationList" item="station" separator=",">
+            (#{station.stationId},#{station.stationName},#{station.ringFlag})
+        </foreach>
+    </insert>
+
+
+</mapper>

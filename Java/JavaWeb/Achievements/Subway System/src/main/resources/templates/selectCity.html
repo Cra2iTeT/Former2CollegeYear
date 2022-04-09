@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统首页</title>
+
+    <link type="text/css" rel="stylesheet" th:href="@{css/commons.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{css/public.css}">
+    <script type="text/javascript" th:src="@{/js/jquery-3.6.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commons.js}"></script>
+
+</head>
+<body>
+
+<header th:replace="commons/commons :: commonHeader"></header>
+
+<article id="article">
+    <div th:replace="commons/commons :: commonMenu(0)"></div>
+    <div class="content" id="content">
+
+        <form th:action="@{/getAllLines}" method="post">
+            <div>
+                <h2>请选择要查询的城市</h2>
+            </div>
+            <div>
+                <select name="cityName">
+                    <option value="石家庄" selected>石家庄</option>
+                    <option value="北京" >北京</option>
+                    <option value="上海" >上海<option>
+                    <option value="天津" >天津</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+</article>
+
+</body>
+</html>

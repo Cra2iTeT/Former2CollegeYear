@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>系统首页</title>
+
+    <link type="text/css" rel="stylesheet" th:href="@{css/commons.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{css/showLines.css}">
+    <script type="text/javascript" th:src="@{/js/jquery-3.6.0.js}"></script>
+    <script type="text/javascript" th:src="@{/js/commons.js}"></script>
+
+</head>
+<body>
+
+<header th:replace="commons/commons :: commonHeader"></header>
+
+<article id="article">
+    <div th:replace="commons/commons :: commonMenu(0)"></div>
+    <div class="content" id="content">
+        <table border="1" align="center" style="border-color: black;border-style:hidden">
+            <tr>
+                <th>线路</th>
+                <th>站点</th>
+            </tr>
+            <tr th:each="line:${allLines}">
+                <td th:text="${line.getLineId()}">
+                </td>
+                <td th:each="station:${line.getStations()}">
+                    <span th:text="${station.getStationName()}"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</article>
+
+</body>
+</html>
+
+

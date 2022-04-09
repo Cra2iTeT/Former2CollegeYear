@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tea.lesson03.mapper.LineMapper">
+    <resultMap id="lineMap" type="line">
+        <id column="line_id" property="lineId" jdbcType="VARCHAR"></id>
+        <result column="line_name" property="lineName" jdbcType="VARCHAR"></result>
+        <result column="station_id" property="stationId" jdbcType="VARCHAR"></result>
+    </resultMap>
+
+    <select id="select" parameterType="map" resultMap="lineMap">
+        select * from ${tableName}
+        <where>
+            <if test="lineId != null">
+                line_id = #{lineId}
+            </if>
+            <if test="stationId != null">
+                and station_id like concat('%',#{stationId},'%')
+            </if>
+        </where>
+    </select>
+
+    <select id="isTableExist" parameterType="map" resultType="int">
+        select count(*)
+        from information_schema.TABLES
+        where table_name = #{tableName}
+    </select>
+
+    <insert id="insertTable" parameterType="map">
+        create table ${tableName}
+        (
+            `line_id`    varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin   NOT NULL,
+            `line_name`  varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin   NOT NULL,
+            `station_id` varchar(3000) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+            PRIMARY KEY (`line_id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+    </insert>
+
+    <insert id="insertData" parameterType="map">
+        insert into ${tableName} (`line_id`, `line_name`, `station_id`)
+        values (#{lineId}, #{lineName}, #{stationId});
+    </insert>
+
+</mapper>
